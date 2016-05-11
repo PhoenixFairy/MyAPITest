@@ -47,11 +47,10 @@ class MyMet{
     }
 }
 @ $conn = new mysqli('localhost','tes','te','test1th'); //Conn to database
-require 'MulticraftAPI.php';
-$api =  new MulticraftAPI("http://my.mcdscz.cn/api.php", 'admin', 'a3zLah8p$+fa8t');//Conn to multicraft
+
     # $query = "insert into ke values (NULL,sha1(1213))";
     # $result = $conn->query($query);
-    # Test Add Key
+    # Test Add Keyd
     # Success !
 
     # Test Add key Function.
@@ -73,7 +72,8 @@ $api =  new MulticraftAPI("http://my.mcdscz.cn/api.php", 'admin', 'a3zLah8p$+fa8
     # Success ! 
     
     # Test batchAddKey function
-    
     # MyMet::batchAddKeys(100);
     # Success !
+    
+    # Then Add key Verify and Key Adder functions
 ?>
