@@ -8,6 +8,7 @@ class MyMet{
     /**
      *  this class includes some functions
      */
+    // Use it to add Key to database
     public static function addKey(){
         @ $conn = new mysqli('localhost','tes','te','test1th'); //Conn to database
         $query = "insert into ke values (NULL,sha1(".rand()."))";
@@ -15,6 +16,7 @@ class MyMet{
         $conn->close();//close database conn
         return $result->affect_rows;
     }
+    // Use it to Verify Key
     public static function verifyKey($key){
         @ $conn = new mysqli('localhost','tes','te','test1th'); //Conn to database
         $query = "select * from ke where ke='".$key."'";
@@ -31,17 +33,17 @@ class MyMet{
 @ $conn = new mysqli('localhost','tes','te','test1th'); //Conn to database
 require 'MulticraftAPI.php';
 $api =  new MulticraftAPI("http://my.mcdscz.cn/api.php", 'admin', 'a3zLah8p$+fa8t');//Conn to multicraft
-    #   $query = "insert into ke values (NULL,sha1(1213))";
-    #   $result = $conn->query($query);
-    #   Test Add Key
-    #   Success!
+    # $query = "insert into ke values (NULL,sha1(1213))";
+    # $result = $conn->query($query);
+    # Test Add Key
+    # Success !
 
     # Test Add key Function.
     # for ($i = 0; $i < 10; $i++) {
     #     MyMet::addKey();
     # }
     
-    # Success!
+    # Success !
     
 
     # Test Verify Key Function.
@@ -52,5 +54,5 @@ $api =  new MulticraftAPI("http://my.mcdscz.cn/api.php", 'admin', 'a3zLah8p$+fa8
     #     echo 'Faild!';
     # }
     
-    # Success!;
+    # Success !
 ?>
