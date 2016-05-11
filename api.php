@@ -10,11 +10,11 @@ class MyMet{
      */
     // Use it to add Key to database
     public static function addKey(){
+        $ra = (time())*(rand());
         @ $conn = new mysqli('localhost','tes','te','test1th'); //Conn to database
-        $query = "insert into ke values (NULL,sha1(".rand()."))";
+        $query = "insert into ke values (NULL,sha1(".$ra."))";
         $result = $conn->query($query);
         $conn->close();//close database conn
-        return $result->affect_rows;
     }
     // Use it to Verify Key
     public static function verifyKey($key){
@@ -28,6 +28,22 @@ class MyMet{
             return false;
         }
         $conn->close();
+    }
+    public static function batchAddKeys($num){
+        if(is_int($num) and $num>0){
+            @ $conn = new mysqli('localhost','tes','te','test1th');
+            for ($i = 0; $i < $num; $i++) {
+                $ra = (time())*(rand());
+                $query = "insert into ke values (NULL,sha1(".$ra."))";
+                
+                $conn->query($query);
+            }
+            $conn->close();
+            return true;
+        } else {
+            return false;
+        }
+       
     }
 }
 @ $conn = new mysqli('localhost','tes','te','test1th'); //Conn to database
@@ -54,5 +70,10 @@ $api =  new MulticraftAPI("http://my.mcdscz.cn/api.php", 'admin', 'a3zLah8p$+fa8
     #     echo 'Faild!';
     # }
     
+    # Success ! 
+    
+    # Test batchAddKey function
+    
+    # MyMet::batchAddKeys(100);
     # Success !
 ?>
