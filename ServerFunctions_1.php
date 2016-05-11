@@ -17,7 +17,15 @@ class ServerFunctions_1
         // User = Admin
         // Do not use it
         $result = $api->createServer($servername,$port);
-        return $result[ 'id'];
+
+        $serverid = $result[ 'id'];
+       
+        # Now implement database
+        
+        @ $conn = new mysqli('localhost','tes','te','test1th'); //Conn to database
+        $query = "insert into servers values (28000,$serverid)";
+        $result = $conn->query($query);
+        $conn->close();
     }
     // TODO To create a minecraft server administrator
     public static function createUser($username,$passwd) {
@@ -42,7 +50,7 @@ class ServerFunctions_1
         $result = $api->setServerOwner($serverid,$userid);
         return true;
     }
-    
+    // TODO Set server mem
     public static function setServerMem($mem,$serverid){
         $api =  new MulticraftAPI("http://my.mcdscz.cn/api.php", 'admin', 'a3zLah8p$+fa8t');
         // Conn to Multicraft API
@@ -55,6 +63,12 @@ class ServerFunctions_1
                 $mem
             ));
         return true;
+    }
+    // TODO SetServerStop
+    public static function stopServer($serverid){
+        $api =  new MulticraftAPI("http://my.mcdscz.cn/api.php", 'admin', 'a3zLah8p$+fa8t');
+        // Conn to multicraft pane
+        $api->suspendServer($serverid);
     }
     
 }
