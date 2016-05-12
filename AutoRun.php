@@ -5,8 +5,9 @@
  *  @version 2016-5-12-0
  *  @todo Set Server Suspend
  */
+require_once 'Defined/Defined.php';
 include 'ServerFunctions_1.php';
-@ $conn = new mysqli('localhost','tes','te','test1th');
+@ $conn = new mysqli(MYSQL_HOST,MYSQL_USER,MYSQL_PASSWORD,MYSQL_DATABASE_NAME);
 // Conn to database
 $query = "select * from servers where stopv=1";
 $result = $conn->query($query);

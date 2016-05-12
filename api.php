@@ -11,19 +11,20 @@ class MyMet{
     // Use it to add Key to database
     public static function addKey(){
         $ra = (time())*(rand());
-        @ $conn = new mysqli('localhost','tes','te','test1th'); //Conn to database
+       @ $conn = new mysqli(MYSQL_HOST,MYSQL_USER,MYSQL_PASSWORD,MYSQL_DATABASE_NAME); //Conn to database
         $query = "insert into ke values (NULL,sha1(".$ra."))";
         $result = $conn->query($query);
         $conn->close();//close database conn
     }
     // Use it to Verify Key
     public static function verifyKey($key){
-        @ $conn = new mysqli('localhost','tes','te','test1th'); //Conn to database
+       @ $conn = new mysqli(MYSQL_HOST,MYSQL_USER,MYSQL_PASSWORD,MYSQL_DATABASE_NAME); //Conn to database
         $query = "select * from ke where ke='".$key."'";
         $result = $conn->query($query);
         if($result->num_rows){
             $conn->query("delete from ke where ke='".$key."'");
             return true;
+            // If key Verified , Delete this key in table.
         } else {
             return false;
         }
@@ -31,11 +32,11 @@ class MyMet{
     }
     public static function batchAddKeys($num){
         if(is_int($num) and $num>0){
-            @ $conn = new mysqli('localhost','tes','te','test1th');
+           @ $conn = new mysqli(MYSQL_HOST,MYSQL_USER,MYSQL_PASSWORD,MYSQL_DATABASE_NAME); //Conn to database
             for ($i = 0; $i < $num; $i++) {
                 $ra = (time())*(rand());
                 $query = "insert into ke values (NULL,sha1(".$ra."))";
-                
+                // Insert key into database
                 $conn->query($query);
             }
             $conn->close();
@@ -76,4 +77,7 @@ class MyMet{
     # Success !
     
     # Then Add key Verify and Key Adder functions
+    
+    # Nothing to do.
+    # End
 ?>
