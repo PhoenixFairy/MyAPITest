@@ -20,7 +20,7 @@ class ServerFunctions_1
        
         # Now implement database
         # Time : 2016-5-12-1
-        @ $conn = new mysqli('localhost','tes','te','test1th'); //Conn to database
+        @ $conn = new mysqli(MYSQL_HOST,MYSQL_USER,MYSQL_PASSWORD,MYSQL_DATABASE_NAME); //Conn to database
         $query = "insert into servers values (28000,$serverid)";
         $result = $conn->query($query);
         $conn->close();
