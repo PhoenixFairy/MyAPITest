@@ -25,6 +25,7 @@ class ServerFunctions_1
         $result = $conn->query($query);
         $conn->close();
         # This Updatement
+        return $serverid;
     }
     // TODO To create a minecraft server administrator
     public static function createUser($username,$passwd) {
