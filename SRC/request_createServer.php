@@ -13,7 +13,7 @@ $username = $_POST[ 'username'];
 $password = $_POST[ 'password'];
 $key = $_POST[ 'key'];
 if (MyMet::verifyKey($key)) {
-    $serverid = ServerFunctions_1::createUser($username, $password);
+    $serverid = ServerFunctions_1::createServer($username, $password);
     # If Key Verified , Create Server.
     # Delete Key in database.
     $userid = ServerFunctions_1::createUser($username, $password);

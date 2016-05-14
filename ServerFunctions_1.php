@@ -60,6 +60,27 @@ class ServerFunctions_1
         // Conn to multicraft pane
         $api->suspendServer($serverid);
     }
+    // TODO does Server exit.
+    public static function doesServerExits($username){
+       
+        $api = new MulticraftAPI(API_ADDRESS, API_USER, API_KEY);
+        // Conn to multicraft panel
+        $servers = $api->listServers();// get Array servers
+        $server = $servers[ 'Servers'];
+        foreach ($server as $key => $value) {
+            if($value == $username){
+                return true;
+            } else {
+                return false;
+            }
+        }// Server exits
+    }
+    // TODO Add Server restion day in database
+    public static function addServerDay($server,$days) {
+      @ $conn = new mysqli(MYSQL_HOST,MYSQL_USER,MYSQL_PASSWORD,MYSQL_DATABASE_NAME);
+      $query = "update servers set resttime = resttine+$days";
+      $conn->query($query);
+    }
     
 }
 
