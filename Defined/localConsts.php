@@ -7,7 +7,7 @@
  * @see 847072154@qq.com
  */
 //--------------------------------------
-define(MAIL_ADDRESS, '847072154@qq.com');
-define(USER_PASSWORD_LENGTJ,40);
-define(CODE_METHOD,'sha1');
+define('MAIL_ADDRESS', '847072154@qq.com');
+define('USER_PASSWORD_LENGTJ',40);
+define('CODE_METHOD','sha1');
 //--------------------------------------

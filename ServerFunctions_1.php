@@ -63,17 +63,18 @@ class ServerFunctions_1
     // TODO does Server exit.
     public static function doesServerExits($username){
        
+        $result = false;
         $api = new MulticraftAPI(API_ADDRESS, API_USER, API_KEY);
         // Conn to multicraft panel
         $servers = $api->listServers();// get Array servers
         $server = $servers[ 'Servers'];
         foreach ($server as $key => $value) {
             if($value == $username){
-                return true;
-            } else {
-                return false;
+                $result = true;
+                break;
             }
         }// Server exits
+        return $result;
     }
     // TODO Add Server restion day in database
     public static function addServerDay($server,$days) {

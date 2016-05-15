@@ -4,6 +4,7 @@
  * @author PhoenixFairy
  * @version 2016-5-11-2
  */
+require_once 'Defined/Defined.php';
 class MyMet{
     /**
      *  this class includes some functions
@@ -47,8 +48,8 @@ class MyMet{
        
     }
 }
-@ $conn = new mysqli('localhost','tes','te','test1th'); //Conn to database
-
+    # @ $conn = new mysqli('localhost','tes','te','test1th'); //Conn to database
+MyMet::batchAddKeys(2);
     # $query = "insert into ke values (NULL,sha1(1213))";
     # $result = $conn->query($query);
     # Test Add Keyd

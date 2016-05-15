@@ -1,8 +1,8 @@
 <?php
 include_once 'result.php';
-include_once 'api.php';
-include_once 'ServerFunctions_1.php';
-require_once 'Defined/resultConsts.php';
+include_once '../api.php';
+include_once '../ServerFunctions_1.php';
+require_once '../Defined/resultConsts.php';
 if(!(isset($_POST[ 'username'])) or !(isset($_POST[ 'password'])) or !(isset($_POST[ 'key']))){
     $result = new result(RESULT_ERROR, RESULT_ERROR_NO_PARAM);
     $result_str = json_encode($result);
